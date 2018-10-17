@@ -21,15 +21,15 @@ public class Tour extends Pile {
     // Redéfinir empiler de Pile de façon à contrôler qu'on n'empile
     // qu'une instance de Disque, et de taille suffisamment grande.
     public void empiler(Object o) throws ErreurPile {
-        if(o instanceof Disque)
+        if(o instanceof Empilable)
         {
-        	Disque d = (Disque)o;
-	    	if(this.estVide() || (d.compareTo(this.sommet()) <= 0))
-	    	  super.empiler(o);
+        	Empilable e = (Empilable)o;
+	    	if(this.estVide() || (e.compareTo(this.sommet()) <= 0))
+	    	  super.empiler(e);
 	    	else
     	   throw new ErreurTour("Insertion d'un disque plus gros sur un plus petit");
         }
         else
-        	throw new ErreurTour("Insertion d'un objet et non d'un disque");
+        	throw new ErreurTour("Insertion d'un objet et non d'un empilable");
     }
 }
