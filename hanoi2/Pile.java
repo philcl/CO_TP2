@@ -35,7 +35,7 @@ public class Pile {
 	return capacite;
     }
 
-    public void affiche () { 
+    public void affiche () {
 	for(int cur = ptr-1; cur >= 0; cur--) {
 	    System.out.println(corps[cur].toString());
 	}

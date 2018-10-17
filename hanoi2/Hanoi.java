@@ -2,16 +2,19 @@ public class Hanoi {
 
     protected Tour depart, milieu, arrivee;
 
-    // le conctructeur prend maintenant en parametre la classe qui doit
-    // etre utilisee comme type de disques a empiler.
-    public Hanoi(int nb, Class c) {
-	depart = new Tour(nb); milieu = new Tour(nb); arrivee = new Tour(nb);
-	/* A FAIRE: initialiser la tour de depart avec nb instances de la
-	 * classe référencée par le parametre c.
-	 */
-        throw new UnsupportedOperationException();
+    // Utile uniquement pour les sous-classes qui donneront leurs
+    // propres versions des Tours.
+    protected Hanoi() {
     }
 
+    public Hanoi(int nb) {
+	// Cree une insatnce des tours de Hanoi avec le bon nombre de
+	// disques empiles sur la tour de départ.
+	depart = new Tour(nb); milieu = new Tour(nb); arrivee = new Tour(nb);
+	try {
+	    depart.remplir(nb);
+	} catch (ErreurPile e) {}
+    }
 
     public void jouer() {
 	try {
@@ -35,13 +38,17 @@ public class Hanoi {
     protected void oneStep(int nb, Tour D, Tour A, Tour M) throws ErreurPile {
 	if (nb > 0) {
 	    oneStep(nb-1, D, M, A);
-	    /* On ne peut pas etre plus precis que Empilable puisqu'on ne
-	     * connait pas la classe reelle des disques.
-	     */
-	    Empilable o = (Empilable) D.sommet();
+	    Disque d = (Disque) D.sommet();
 	    D.depiler();
-	    A.empiler(o);
+	    A.empiler(d);
 	    oneStep(nb-1, M, A, D);
 	}
+    }
+
+    static public void main (String[] args) {
+	Hanoi H = new Hanoi(6);
+	H.affiche();
+	H.jouer();
+	System.out.println("Situation finale:"); H.affiche();
     }
 }
