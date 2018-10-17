@@ -35,7 +35,7 @@ public class Hanoi {
     }
 
     // Empiler nb Disque de D vers A en se servant de M comme Tour auxiliaire
-    protected void oneStep(int nb, Tour D, Tour A, Tour M) throws ErreurPile {
+    protected void oneStep(int nb, Tour D, Tour A, Tour M) throws ErreurPile, ErreurTour {
 	if (nb > 0) {
 	    oneStep(nb-1, D, M, A);
 	    Disque d = (Disque) D.sommet();
