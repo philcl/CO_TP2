@@ -22,11 +22,13 @@ public class Tour extends Pile {
 					this.empiler(e);
 
 				} catch (InstantiationException | IllegalAccessException e1) {
-					e1.printStackTrace();
+					throw new ErreurTour("Classe non instanciable");
 				}
             }
           
 	    }
+        else
+        	throw new ErreurTour("Classe non empilable");
     }
 
     // Redéfinir empiler de Pile de façon à contrôler qu'on n'empile
