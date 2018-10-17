@@ -1,4 +1,4 @@
-public class ErreurTour extends Exception{
+public class ErreurTour extends ErreurPile{
 
     public ErreurTour() {
         super();
