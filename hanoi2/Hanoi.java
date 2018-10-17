@@ -4,14 +4,13 @@ public class Hanoi {
 
     // le conctructeur prend maintenant en parametre la classe qui doit
     // etre utilisee comme type de disques a empiler.
-    public Hanoi(int nb, Class c) {
+    public Hanoi(int nb, Class c) throws ErreurPile {
 	depart = new Tour(nb); milieu = new Tour(nb); arrivee = new Tour(nb);
 	/* A FAIRE: initialiser la tour de depart avec nb instances de la
 	 * classe référencée par le parametre c.
 	 */
-        throw new UnsupportedOperationException();
+	depart.remplir(nb, c);
     }
-
 
     public void jouer() {
 	try {

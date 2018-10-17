@@ -9,19 +9,19 @@ public class Tour extends Pile {
     // empiler des objets arbitraires du moment qu'ils sont comparables.
     // Comme on sait quelle classe il faut instancier, on a juste besoin de
     // prendre en parametre le nombre de disques a empiler, et on commencera
-    // par empiler le plus gros.    
+    // par empiler le plus gros.
+
+
     public void remplir(int nb, Class c) throws ErreurPile {
-	    for(; nb > 0; nb--) {
-            if(Empilable.class.isAssignableFrom(c))
-            {
-            	Empilable e;
+        if(Empilable.class.isAssignableFrom(c)){
+            Empilable e;
+            for(; nb > 0; nb--) {
 				try {
 					e = (Empilable)c.newInstance();
 					e.init(nb);
-	            	try {this.empiler(e);}
-	            	catch (ErreurTour erreurTour) {}
+					this.empiler(e);
+
 				} catch (InstantiationException | IllegalAccessException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
             }

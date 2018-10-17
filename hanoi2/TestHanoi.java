@@ -14,7 +14,7 @@ public class TestHanoi {
 	String name = scan.next("(\\w+.)*(\\w+)");
 	Hanoi h = null;
 	try {
-	    h = new Hanoi(6, /* ? Passer du nom a l'objet Class ? */);
+	    h = new Hanoi(6, Class.forName(name));
 	} catch (ErreurPile e) {
 	    System.out.println(e.getMessage());
 	} catch (ClassCastException e) {
