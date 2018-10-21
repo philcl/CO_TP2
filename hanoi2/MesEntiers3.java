@@ -1,7 +1,7 @@
 // Modifier cette classe pour qu'elle devienne une classe acceptable comme
 // type de disques empilables sur une tour de Hanoi.
 
-public class MesEntiers3  {
+public class MesEntiers3  implements Empilable{
     Integer val;
 
     public void init(int nb) {
@@ -17,4 +17,4 @@ public class MesEntiers3  {
 	return "MesEntiers[" + val.intValue() +"]";
     }
 }
-
+//

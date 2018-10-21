@@ -4,6 +4,8 @@
 public class MesEntiers2 implements Empilable {
     Integer val;
 
+    public MesEntiers2(){}
+
     public MesEntiers2(int v) {
 	val = v;
     }
