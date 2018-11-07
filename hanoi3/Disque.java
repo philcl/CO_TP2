@@ -12,4 +12,9 @@ public class Disque implements Empilable<Disque> {
     public String toString() {
 	return "Disque[" + val + "]";
     }
+
+    @Override
+    public int compareTo(Disque o) {
+        return 0;//todo
+    }
 }

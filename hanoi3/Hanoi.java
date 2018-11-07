@@ -1,19 +1,19 @@
 import java.util.ArrayList;
 
 // Pour le choix du parametre de genericite, voir le commentaire dans Tour.java
-public class Hanoi<??>> { 
+public class Hanoi<T extends Empilable<T>> {
 
-    protected Tour<??> depart, milieu, arrivee;
+    protected Tour<T> depart, milieu, arrivee;
 
-    public Hanoi(ArrayList<??> inits) {
+    public Hanoi(ArrayList<T> inits) {
 	int nb = inits.size();
-	depart = new Tour<??>(nb); 
-        milieu = new Tour<??>(nb);
-	arrivee = new Tour<??>(nb);
+	depart = new Tour<T>(nb);
+        milieu = new Tour<T>(nb);
+	arrivee = new Tour<T>(nb);
 	// suppose que la collection a ete creee avec les elements dans l'ordre
 	// dans lequel ils doivent etre empiles (du plus grand au plus petit)
 	try {
-	    for(?? o: inits) 
+	    for(T o: inits)
 		depart.empiler(o);
 	} catch (ErreurTour e) {
 	    System.out.println(e.getMessage());
@@ -44,11 +44,11 @@ public class Hanoi<??>> {
     }
 
     // Empiler nb Disque de D vers A en se servant de M comme Tour auxiliaire
-    protected void oneStep(int nb, Tour<??> D, Tour<??> A, Tour<??> M) 
+    protected void oneStep(int nb, Tour<T> D, Tour<T> A, Tour<T> M)
                    throws ErreurPile {
 	if (nb > 0) {
 	    oneStep(nb-1, D, M, A);
-	    ?? c = D.sommet(); /* cast ou pas cast ? */
+	    T c = D.sommet(); /* cast ou pas cast ? */
 	    A.empiler(c);
 	    D.depiler();
 	    oneStep(nb-1, M, A, D);

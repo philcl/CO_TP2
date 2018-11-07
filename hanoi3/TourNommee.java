@@ -1,4 +1,4 @@
-public class TourNommee<??> extends Tour<??> {
+public class TourNommee<T extends Empilable<T>> extends Tour<T> {
 
     protected String nom;
 

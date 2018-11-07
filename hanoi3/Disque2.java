@@ -1,4 +1,4 @@
-public class Disque2 extends Disque implements Empilable<??> {
+public class Disque2 extends Disque implements Empilable<Disque> {
 
     private int val2;
 
@@ -18,6 +18,7 @@ public class Disque2 extends Disque implements Empilable<??> {
      * avec la version de la super-classe (par exemple si on travaille sur
      * une tour qui melange des instances de Disque et de Disque2)
      */
-    public int compareTo() {
+    public int compareTo(Disque2 o) {
+        return 0; //todo
     }
 }

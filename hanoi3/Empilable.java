@@ -1,4 +1,4 @@
-interface Empilable<T> extends Comparable<??> {
+interface Empilable<T> extends Comparable<T> {
     void init(int i);
 }
 
