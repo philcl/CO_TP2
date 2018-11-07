@@ -18,7 +18,7 @@ public class Disque2 extends Disque implements Empilable<Disque> {
      * avec la version de la super-classe (par exemple si on travaille sur
      * une tour qui melange des instances de Disque et de Disque2)
      */
-    public int compareTo(Disque2 o) {
+    public int compareTo(Disque o) {
         return 0; //todo
     }
 }

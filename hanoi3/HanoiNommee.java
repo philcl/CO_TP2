@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
-public class HanoiNommee<T extends Empilable<T>> extends Hanoi<T> {
+public class HanoiNommee<T extends Empilable<? super T>> extends Hanoi<T> {
 
-    public HanoiNommee(ArrayList<T> inits) {
+    public HanoiNommee(ArrayList<? extends T> inits) {
 	super(inits);
 	int nb = inits.size();
 	depart = new TourNommee<T>(nb, "Depart");

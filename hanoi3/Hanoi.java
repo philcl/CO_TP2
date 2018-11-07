@@ -1,11 +1,11 @@
 import java.util.ArrayList;
 
 // Pour le choix du parametre de genericite, voir le commentaire dans Tour.java
-public class Hanoi<T extends Empilable<T>> {
+public class Hanoi<T extends Empilable<? super T>> {
 
     protected Tour<T> depart, milieu, arrivee;
 
-    public Hanoi(ArrayList<T> inits) {
+    public Hanoi(ArrayList<? extends T> inits) {
 	int nb = inits.size();
 	depart = new Tour<T>(nb);
         milieu = new Tour<T>(nb);
